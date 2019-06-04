@@ -1,0 +1,48 @@
+
+<!--   <h2>Person list</h2>>
+  <div *ngFor="let person of persons">
+      {{person.name}}
+  </div> -->
+
+  <!-- <mat-card>
+    <mat-card-title>Person List</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let person of persons">
+        
+          <h3 mat-line>{{person.name}}</h3>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card> -->
+
+
+  <div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let person of persons">
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td><a href="mailto:{{ person.email }}">{{ person.email }}</a></td>
+            <td>
+                <ul class="text-center list-inline py-3">
+                    <li class="list-inline-item"><a routerLink="/personedit/{{ person.id }}" class="btn btn-info">Edit Person</a></li>
+                </ul>
+                <ul class="text-center list-inline py-3">
+                    <li class="list-inline-item"> <button type="button" *ngIf="person.id" (click)="remove(person.id)" class="btn btn-info"> Delete </button></li>
+                </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
